@@ -25,7 +25,8 @@ module.exports = {
       type:'string'
     },
     isRead:{
-      type:'boolean'
+      type:'boolean',
+      defaultsTo:false
     },
     status:{
       model:'visitstatus'

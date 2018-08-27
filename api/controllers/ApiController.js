@@ -29,7 +29,7 @@ module.exports = {
     }
   },
   getVisits: async function (req, res) {
-    let visitFromDatabase= await Visit.find({user:req.user.id}).populate('doctor').populate('visitstatus');
+    let visitFromDatabase= await Visit.find({patient:req.user.id}).populate('doctor').populate('status');
     let visitsArr=[];
     await Promise.all(visitFromDatabase.map(async (visit) => {
       let doctor=await User.findOne({doctor:visit.doctor.id});
