@@ -13,7 +13,8 @@ module.exports = {
       via:'doctor'
     },
     specialization: {
-      model: 'specialization',
+      collection: 'specialization',
+      via: 'doctor'
     },
     pwz: {
       type: 'string',
@@ -29,6 +30,5 @@ module.exports = {
       type:'string'
     }
   },
-
 };
 

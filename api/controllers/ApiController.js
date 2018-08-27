@@ -8,7 +8,7 @@
 module.exports = {
 
   getDoctors: async function (req, res) {
-    let doctorsFromDatabase = await Doctor.find().populate('user');
+    let doctorsFromDatabase = await Doctor.find({}).populate('user');
 
     if (doctorsFromDatabase != null) {
     var doctorsArr=[];

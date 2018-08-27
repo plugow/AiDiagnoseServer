@@ -11,9 +11,9 @@
 
 module.exports.bootstrap = async function (done) {
 
-  if (await User.count() > 0) {
-    return done();
-  }
+  // if (await User.count() > 0) {
+  //   return done();
+  // }
 
 
   await Role.createEach([
