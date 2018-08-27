@@ -26,9 +26,17 @@ module.exports = {
     latitude:{
       type: 'number'
     },
+    placeAddress:{
+      type:'string'
+    },
     placeId:{
       type:'string'
-    }
+    },
+    visits:{
+      collection:'visit',
+      via:'doctor'
+    },
+
   },
 };
 

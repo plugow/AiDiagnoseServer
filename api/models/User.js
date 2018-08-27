@@ -40,6 +40,10 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     },
+    visits:{
+      collection:'visit',
+      via:'patient'
+    },
     temporaryPassword: {
       type: 'string'
     },

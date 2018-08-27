@@ -28,6 +28,18 @@ module.exports.bootstrap = async function (done) {
     }
   ]);
 
+  await VisitStatus.createEach([
+    {
+      name: 'WYSŁANO'
+    },
+    {
+      name: 'ZAAKCEPTOWANO'
+    },
+    {
+      name: 'ODRZUCONO'
+    }
+  ]);
+
   await Specialization.createEach([
     {
       name: 'Dermatolog'
@@ -456,6 +468,28 @@ module.exports.bootstrap = async function (done) {
   ]);
 
 
+  let user=await User.findOne({email:'user@user.pl'});
+
+  await Visit.createEach([
+    {
+      doctor:3,
+      patient:user.id,
+      place:'Somewhere over the rainbow',
+      date:'20-09-18',
+      comment:'brak',
+      isRead:true,
+      status:1
+    },
+    {
+      doctor:5,
+      patient:user.id,
+      place:'Somewhere only we know',
+      date:'20-09-18',
+      comment:'brak',
+      isRead:false,
+      status:2
+    },
+  ]);
 
 
   return done();
