@@ -131,9 +131,6 @@ module.exports = {
         return res.accountNotActivated()
       }
 
-      // if (user.companies == null) {
-      //   return res.userHasNoCompanies()
-      // }
     } else {
       return res.badRequest()
     }

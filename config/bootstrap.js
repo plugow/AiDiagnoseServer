@@ -472,7 +472,7 @@ module.exports.bootstrap = async function (done) {
 
   await Visit.createEach([
     {
-      doctor:3,
+      doctor:2,
       patient:user.id,
       place:'Somewhere over the rainbow',
       date:'20-09-18',
@@ -481,7 +481,7 @@ module.exports.bootstrap = async function (done) {
       status:1
     },
     {
-      doctor:5,
+      doctor:2,
       patient:user.id,
       place:'Somewhere only we know',
       date:'20-09-18',

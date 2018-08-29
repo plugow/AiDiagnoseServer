@@ -27,6 +27,7 @@ module.exports.routes = {
   'POST /auth/register': 'AuthController.register',
   'POST /auth/login': 'AuthController.login',
   'GET /getDoctors': 'ApiController.getDoctors',
+  'GET /getVisitsForDoctor': 'ApiController.getVisitsForDoctor',
   'GET /getVisits': 'ApiController.getVisits',
 
   /***************************************************************************
