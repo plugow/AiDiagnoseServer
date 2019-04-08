@@ -90,16 +90,16 @@ module.exports.bootstrap = async function (done) {
     },
     {
       email: 'doctor2@doctor.pl',
-      firstName: 'Doctor2',
-      lastName: 'Doctor',
+      firstName: 'Jan',
+      lastName: 'Kowalski',
       password: 'doctor',
       isActive: true,
       role: 2,
     },
     {
       email: 'doctor3@doctor.pl',
-      firstName: 'Doctor3',
-      lastName: 'Doctor',
+      firstName: 'Józef',
+      lastName: 'Klekociński',
       password: 'doctor',
       isActive: true,
       role: 2,
@@ -226,9 +226,9 @@ module.exports.bootstrap = async function (done) {
     },
     {
       email: 'user@user.pl',
-      firstName: 'User',
-      lastName: 'User',
-      password: 'User',
+      firstName: 'Marcin',
+      lastName: 'Nowak',
+      password: 'user',
       isActive: true,
       role: 3,
     }
@@ -472,21 +472,21 @@ module.exports.bootstrap = async function (done) {
 
   await Visit.createEach([
     {
-      doctor:2,
+      doctor:1,
       patient:user.id,
-      place:'Somewhere over the rainbow',
-      date:'20-09-18',
+      place:'Mikołaja Kopernika 36',
+      date:'2018-09-18 18:30',
       comment:'brak',
-      isRead:true,
+      isRead:false,
       status:1
     },
     {
-      doctor:2,
+      doctor:3,
       patient:user.id,
-      place:'Somewhere only we know',
-      date:'20-09-18',
-      comment:'brak',
-      isRead:false,
+      place:'Kronikarza Galla 25',
+      date:'2018-09-10 10:00',
+      comment:'Proszę przyjść na czczo',
+      isRead:true,
       status:2
     },
   ]);

@@ -47,7 +47,6 @@ module.exports = {
    * @param {Object} res Response object
    */
   register: async function (req, res) {
-
     let firstName = req.param('firstName');
     let lastName = req.param('lastName');
     let password = req.param('password');
@@ -59,46 +58,27 @@ module.exports = {
 
     if (firstName != null && lastName != null && password != null && email != null) {
 
-      await User
-        .create({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          password: password,
-          role: role,
-          pwz: pwz
-        })
-        .fetch();
-      return res.created()
-      //   .then(async function () {
-      //
-      //   let adminEmails = await User.find({
-      //     where:{role:1},
-      //     select:['email']
-      //   });
-      //
-      //   try {
-      //     await sails.helpers.sendEmail.with({
-      //       to: _.map(adminEmails, 'email'),
-      //       subject: 'Account created',
-      //       text: 'Account ' + email + ' was created. Waiting for activation.'
-      //     });
-      //   } catch (e) {
-      //     console.log(e.message)
-      //   }
-      //
-      //   return res.created()
-      // })
-    .catch(function (err) {
-
-        switch (err.code) {
+      try {
+        await User
+          .create({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            role: role,
+            pwz: pwz
+          })
+          .fetch();
+        return res.created()
+      } catch(e){
+        switch (e.code) {
           case 'E_UNIQUE':
             return res.accountExists();
 
           default:
             return res.serverError(err)
         }
-      });
+      }
 
     } else {
       return res.badRequest()
